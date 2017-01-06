@@ -24,7 +24,7 @@ public void setup()
      double dNum = Double.parseDouble(testNums);
      String test49 = eLong.substring(101,111);
      String numInds = test49.substring(1,2);
-     int deNum = parseInt(numInds);
+     int deNum = parseInt(numInds,10);
 	 noLoop();
      
 }  
@@ -46,14 +46,19 @@ public void draw()
 		String test49 = eLong.substring(i,i+10);
 			for (int j = 0; j < test49.length(); j++){
 				String numInds = test49.substring(j,j+1);
-				deNum = parseInt(numInds);
-			}
-	
-	if (is49(test49) == true)
-			System.out.println("The next number summing to 49 is: " + test49);
-	}
+				deNum = parseInt(numInds,10);
+					int sum49 = 0;
+					for (int k = 0; k < test49.length(); k++){
+						sum49 = sum49 + deNum;
+						if (sum49 == 49){
+							System.out.println("The next number summing to 49 is: " + test49);
+						}  
+					}
 
-}  
+			}
+
+}
+}
 public boolean isPrime(double dNum)  
 {   
     for (int i = 2; i <= Math.sqrt(dNum); i++){
@@ -62,16 +67,6 @@ public boolean isPrime(double dNum)
    return true;
     
 } 
-public boolean is49(String test49)
-{
-	int sum49 = 0;
-	for (int i = 0; i < eLong.length(); i++)
-		
-	sum49 = sum49 + deNum;
-	if (sum49 == 49){return true;}
-	return false;
-		
-}
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "GoogleBillboard" };
     if (passedArgs != null) {
